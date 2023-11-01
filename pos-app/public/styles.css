@@ -1,0 +1,107 @@
+/* styles.css */
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Encabezado */
+  header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+  }
+  
+  header h1 {
+    font-size: 2rem;
+  }
+  
+  /* Navegación */
+  nav {
+    background-color: #444;
+    padding: 10px 0;
+    text-align: center;
+  }
+  
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 10px;
+  }
+  
+  /* Tablas */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  table th, table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  table th {
+    background-color: #444;
+    color: #fff;
+  }
+  
+  /* Formularios */
+  form {
+    margin-bottom: 20px;
+  }
+  
+  form label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  form input[type="text"], form input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  form button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  /* Notificaciones de Existencias Bajas */
+  .low-inventory-notification {
+    background-color: #ffcc00;
+    padding: 10px;
+    margin-top: 20px;
+  }
+  
+  /* Carrito de Compras */
+  .cart {
+    background-color: #0099cc;
+    color: #fff;
+    padding: 10px;
+    margin-top: 20px;
+  }
+  
+  /* Estilos específicos para la gestión de clientes (puedes ajustarlos) */
+  /* .client-list, .client-form, etc. */
+  
+  /* Estilos específicos para la gestión de productos (puedes ajustarlos) */
+  /* .product-list, .product-form, etc. */
+  
+  /* Estilos específicos para la página de inicio (puedes ajustarlos) */
+  /* .home, .welcome-text, etc. */
+  

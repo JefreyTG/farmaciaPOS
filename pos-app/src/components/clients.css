@@ -1,0 +1,56 @@
+/* Clients.css */
+
+.clients-container {
+    padding: 20px;
+  }
+  
+  .clients-title {
+    font-size: 2rem;
+  }
+  
+  .client-list {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .client-list th, .client-list td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .client-list th {
+    background-color: #444;
+    color: #fff;
+  }
+  
+  .client-list tr:hover {
+    background-color: #f4f4f4;
+  }
+  
+  .client-form {
+    margin-bottom: 20px;
+  }
+  
+  .client-form label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .client-form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .client-form button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  /* Agrega estilos adicionales según tus preferencias */
+  
