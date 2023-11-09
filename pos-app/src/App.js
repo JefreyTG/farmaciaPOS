@@ -1,10 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from '../src/components/home';
-import Products from './routes/Products';
-import { Inventory } from './components/inventory';
-
-
+import { Inventory } from '../src/components/inventory';
+import {Products} from './routes/Products'
 
 function App() {
   return (
@@ -15,9 +13,9 @@ function App() {
         </header>
         <main>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/Inventory" element={<Inventory />} />
-            <Route path="/Products" element={<Products />} />
+            <Route path="/" element={<Home />} />,
+            <Route path="/Products" element={<Products />} />,
+            <Route path="/inventory" element={<Inventory />} />
           </Routes>
         </main>
       </div>
