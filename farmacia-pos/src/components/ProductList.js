@@ -1,16 +1,17 @@
 // src/components/ProductList.js
 import React from 'react';
+import Inventory from './Inventory';
 
 const ProductList = ({ products, addToCart }) => {
   return (
     <div>
-      <h2>Lista de Productos</h2>
+      <h2>Productos Disponibles</h2>
       <ul>
-        {products.map(product => (
-          <li key={product.id}>
-            {product.name} - ${product.price}
-            <button onClick={() => addToCart(product)}>Agregar al carrito</button>
-          </li>
+        {Inventory.map(product =>(
+            <li>
+                {product.name} -Cantidad en inventario: {product.quantity} - Precio: ${product.price} - 
+                <button onClick={()=> addToCart(product)}>Agregar al Carrito</button>
+            </li>
         ))}
       </ul>
     </div>

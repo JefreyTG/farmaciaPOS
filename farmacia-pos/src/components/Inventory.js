@@ -1,6 +1,7 @@
 // src/components/Inventory.js
 import React from 'react';
 
+
 const Inventory = ({ inventory }) => {
   return (
     <div>

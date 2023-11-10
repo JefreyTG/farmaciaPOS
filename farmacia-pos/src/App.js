@@ -14,10 +14,10 @@ const products = [
   { id: 2, name: 'Medicina 2', price: 15 },
   // ... otros productos
 ];
-
+c 
 const initialInventory = [
-  { id: 1, name: 'Medicina 1', quantity: 50 },
-  { id: 2, name: 'Medicina 2', quantity: 30 },
+  { id: 1, name: 'Medicina 1', quantity: 50, price: 10 },
+  { id: 2, name: 'Medicina 2', quantity: 30, price: 15 },
   // ... otros elementos del inventario
 ];
 
