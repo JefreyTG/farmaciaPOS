@@ -2,7 +2,8 @@
 import React from 'react';
 
 
-const Inventory = ({ inventory }) => {
+
+const Inventory = ({inventory})=> {
   return (
     <div>
       <h2>Inventario</h2>

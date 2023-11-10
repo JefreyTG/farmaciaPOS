@@ -1,9 +1,8 @@
-/components/Header.js
 import React from 'react';
 
 const Header = () => {
   return (
-    <header className='main-header'>
+    <header className='header'>
       <h1>NOMBRE DE LA FARMACIA</h1>
     </header>
   );

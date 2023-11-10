@@ -2,33 +2,57 @@
 import React, { useState } from 'react';
 
 const AddProductForm = ({ onAddProduct }) => {
-  const [newProduct, setNewProduct] = useState({ name: '', quantity: 0 });
+  const [productName, setProductName] = useState('');
+  const [productQuantity, setProductQuantity] = useState('');
+  const [productPrice, setProductPrice] = useState('');
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setNewProduct({ ...newProduct, [name]: value });
-  };
+  const handleAddClick = () => {
+    if (productName && productQuantity && productPrice) {
+      const newProduct = {
+        name: productName,
+        quantity: parseInt(productQuantity, 10),
+        price: parseFloat(productPrice),
+      };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onAddProduct(newProduct);
-    setNewProduct({ name: '', quantity: 0 });
+      onAddProduct(newProduct);
+
+      // Limpiar los campos después de agregar el producto
+      setProductName('');
+      setProductQuantity('');
+      setProductPrice('');
+    } else {
+      alert('Por favor, completa todos los campos.');
+    }
   };
 
   return (
     <div>
-      <h2>Agregar Nuevo Producto</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Nombre del Producto:
-          <input type="text" name="name" value={newProduct.name} onChange={handleInputChange} required />
-        </label>
-        <label>
-          Cantidad:
-          <input type="number" name="quantity" value={newProduct.quantity} onChange={handleInputChange} required />
-        </label>
-        <button type="submit">Agregar Producto</button>
-      </form>
+      <h2>Añadir Nuevo Producto</h2>
+      <div>
+        <label>Nombre del Producto:</label>
+        <input
+          type="text"
+          value={productName}
+          onChange={(e) => setProductName(e.target.value)}
+        />
+      </div>
+      <div>
+        <label>Cantidad en Inventario:</label>
+        <input
+          type="number"
+          value={productQuantity}
+          onChange={(e) => setProductQuantity(e.target.value)}
+        />
+      </div>
+      <div>
+        <label>Precio del Producto:</label>
+        <input
+          type="number"
+          value={productPrice}
+          onChange={(e) => setProductPrice(e.target.value)}
+        />
+      </div>
+      <button onClick={handleAddClick}>Agregar Producto</button>
     </div>
   );
 };
