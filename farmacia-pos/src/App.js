@@ -1,5 +1,6 @@
 // src/App.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import bcrypt from "bcryptjs-react";
 import './styles.css';
 
 import Header from './components/Header';
@@ -8,6 +9,8 @@ import Cart from './components/Cart';
 import SaleSummary from './components/SaleSummary';
 import Inventory from './components/Inventory';
 import AddProductForm from './components/AddProductForm';
+import InventoryService from './components/InventoryService';
+
 
 const initialInventory = [
   { id: 1, name: 'Medicina 1', quantity: 50, price: 10 },
@@ -18,6 +21,13 @@ const initialInventory = [
 const App = () => {
   const [cart, setCart] = useState([]);
   const [inventory, setInventory] = useState(initialInventory);
+
+  useEffect(() => {
+    // Cargar productos al montar el componente
+    InventoryService.getAllProducts((data) => {
+      setInventory(data);
+    });
+  }, []);
 
   const addToCart = (product) => {
     setCart([...cart, product]);
@@ -31,11 +41,21 @@ const App = () => {
   };
 
   const handleAddProduct = (newProduct) => {
-    setInventory([...inventory, { ...newProduct, id: inventory.length + 1 }]);
+    // Añadir el nuevo producto a la base de datos utilizando InventoryService
+    InventoryService.addProduct(newProduct.name, newProduct.price, (data) => {
+      if (data) {
+        // Actualizar el estado del inventario con el nuevo producto
+        setInventory([...inventory, data]);
+      }
+    });
   };
 
   const removeFromInventory = (productId) => {
-    setInventory(prevInventory => prevInventory.filter(item => item.id !== productId));
+    // Eliminar el producto de la base de datos utilizando InventoryService
+    InventoryService.removeProduct(productId, () => {
+      // Actualizar el estado del inventario al completar la eliminación
+      setInventory(prevInventory => prevInventory.filter(item => item.id !== productId));
+    });
   };
 
   const updateInventory = (productId, quantityChange) => {
@@ -58,7 +78,7 @@ const App = () => {
       />
       <Cart cart={cart} removeFromCart={removeFromCart} />
       <SaleSummary cart={cart} />
-      <Inventory inventory={inventory} />
+      <Inventory inventory={inventory} removeFromInventory={removeFromInventory} />
       <AddProductForm onAddProduct={handleAddProduct} />
     </div>
   );
